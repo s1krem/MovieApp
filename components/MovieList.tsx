@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, FlatList, ActivityIndicator, Image, StyleSheet} from 'react-native';
-import {useFetchMovies} from './useFetchMovies';
+import {useFetchMovies} from '../services/useFetchMovies';
 import styles from '../styles/globalStyles';
 
 const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';

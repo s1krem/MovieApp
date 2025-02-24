@@ -1,14 +1,19 @@
-import { View, ScrollView, Text} from 'react-native';
-import MovieList from '../services/MovieList';
+import React from "react";
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer } from "@react-navigation/native";
+
+import HomeScreen from "@/app-example/app/(tabs)";
+import MovieList from '../components/MovieList';
+//import MovieDetails from "../components/MovieDetails";
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <ScrollView contentContainerStyle={{ flexGrow: 1}}>
-      <View style={{paddingTop: 40}}>
-        <MovieList category="popular" title="Popular movies"/>
-        <MovieList category="now_playing" title="Now playing"/>
-        <MovieList category="top_rated" title="Top rated"/>
-      </View>
-    </ScrollView>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
