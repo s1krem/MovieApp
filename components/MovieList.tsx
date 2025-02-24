@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, FlatList, ActivityIndicator, Image, StyleSheet, TouchableOpacity} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import { useRouter } from 'expo-router';
 import {useFetchMovies} from '../services/useFetchMovies';
 import styles from '../styles/globalStyles';
 
@@ -13,7 +13,7 @@ interface MovieListProps {
 
 const MovieList: React.FC<MovieListProps> = ({category, title}) => {
   const {movies, loading, error} = useFetchMovies(category);
-  const navigation = useNavigation<any>();
+  const navigation = useRouter();
 
   if (loading) {
     return <ActivityIndicator size="large" color="#0000ff" />;
@@ -31,19 +31,16 @@ const MovieList: React.FC<MovieListProps> = ({category, title}) => {
       keyExtractor={(item) => item.id.toString()}
       renderItem={({item}) => (
         <TouchableOpacity
-            onPress={() => navigation.navigate('MovieDetails', { movie: item })} // Navigate on click
+            onPress={() => navigation.push({ pathname: `/[id]`, params: { id: item.id, ...item } })}
           >
-            <View style={styles.movieContainer}>
-              <Image
-                source={{ uri: `${IMAGE_BASE_URL}${item.poster_path}` }}
-                style={styles.poster}
-              />
-              <Text style={styles.movieTitle}>{item.title}</Text>
+            <View>
+              <Image source={{ uri: `${IMAGE_BASE_URL}${item.poster_path}` }} style={{ width: 100, height: 150 }} />
+              <Text>{item.title}</Text>
             </View>
           </TouchableOpacity>
         
       )}
-      horizontal={true}
+      horizontal
       />
     </View>
   );

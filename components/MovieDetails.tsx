@@ -15,7 +15,7 @@ const MovieDetails = () => {
     <View style={styles.detailsContainer}>
       <Image source={{ uri: `${IMAGE_BASE_URL}${movie.poster_path}` }} style={styles.detailsImage} />
       <Text style={styles.movieTitle}>{movie.title}</Text>
-      <Text style={styles.description}>{movie.overview || "No description available."}</Text>
+      <Text style={styles.description}>{movie.description || "No description available."}</Text>
     </View>
   );
 };
