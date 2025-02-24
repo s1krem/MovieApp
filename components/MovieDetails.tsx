@@ -1,18 +1,23 @@
 import React from 'react';
-import { View, Text} from 'react-native';
+import { View, Text, Image, StyleSheet } from 'react-native';
 import styles from '../styles/globalStyles';
-import { RouteProp } from '@react-navigation/native';
+import { RouteProp, useRoute } from '@react-navigation/native';
 
-type MovieDetailsRouteProp = RouteProp<{ params: { movie: { title: string; description: string; } } }, 'params'>;
+const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
 
-const MovieDetails = ({ route }: { route: MovieDetailsRouteProp }) => {
-    const {movie} = route.params;
-    return (
-        <View>
-            <Text style={styles.movieTitle}>{movie.title}</Text>
-            <Text style={styles.description}>{movie.description}</Text>
-        </View>    
-    );
+type MovieDetailsRouteProp = RouteProp<{ params: { movie: any } }, 'params'>;
+
+const MovieDetails = () => {
+  const route = useRoute<MovieDetailsRouteProp>();
+  const { movie } = route.params;
+
+  return (
+    <View style={styles.detailsContainer}>
+      <Image source={{ uri: `${IMAGE_BASE_URL}${movie.poster_path}` }} style={styles.detailsImage} />
+      <Text style={styles.movieTitle}>{movie.title}</Text>
+      <Text style={styles.description}>{movie.overview || "No description available."}</Text>
+    </View>
+  );
 };
 
 export default MovieDetails;

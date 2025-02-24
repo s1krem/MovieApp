@@ -23,6 +23,16 @@ const globalStyles = StyleSheet.create({
     textAlign: "center",
     color: "#666",
   },
+  detailsContainer: {
+    flex: 1,
+    alignItems: 'center',
+    padding: 20,
+  },
+  detailsImage: {
+    width: 300,
+    height: 450,
+    borderRadius: 10,
+  },
 });
 
 export default globalStyles;
