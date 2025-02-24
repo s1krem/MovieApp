@@ -1,5 +1,5 @@
 import { View, ScrollView, Text} from 'react-native';
-import MovieList from '..//services/MovieList';
+import MovieList from '../services/MovieList';
 
 export default function App() {
   return (

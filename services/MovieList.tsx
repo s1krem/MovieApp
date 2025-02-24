@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, FlatList, ActivityIndicator, Image, StyleSheet} from 'react-native';
-import {useFetchMovies} from '../api/useFetchMovies';
-//import styles from '../styles/globalStyles';
+import {useFetchMovies} from './useFetchMovies';
+import styles from '../styles/globalStyles';
 
 const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
 
@@ -28,8 +28,12 @@ const MovieList: React.FC<MovieListProps> = ({category, title}) => {
       data={movies} 
       keyExtractor={(item) => item.id.toString()}
       renderItem={({item}) => (
-        <View >
-          <Text>{item.title}</Text>
+        <View style={styles.movieContainer}>
+          <Image
+            source={{uri:`${IMAGE_BASE_URL}${item.poster_path}`}}
+            style={styles.poster}
+          />
+          <Text style={styles.movieTitle}>{item.title}</Text>
         </View>
         
       )}
