@@ -18,6 +18,11 @@ const globalStyles = StyleSheet.create({
     width: 120,
     alignSelf: 'center',
   },
+  description: {
+    fontSize: 16,
+    textAlign: "center",
+    color: "#666",
+  },
 });
 
 export default globalStyles;
