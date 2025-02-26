@@ -2,7 +2,6 @@ import React from 'react';
 import { View, Text, FlatList, ActivityIndicator, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import { useRouter } from 'expo-router';
 import {useFetchMovies} from '../services/useFetchMovies';
-//import {  styled } from 'nativewind';
 
 const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
 
