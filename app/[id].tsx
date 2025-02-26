@@ -40,10 +40,11 @@ export default function MovieDetails() {
           <Text style={movieDetailStyles.noTrailerText}>No trailer available</Text>
         )}
 
-        <View>
-          <MovieList category={category.toString()} title="Related movies" />
-        </View>
+
         
+      </View>
+      <View>
+          <MovieList category={category.toString()} title="Related movies" excludeMovieId={movieId} />
       </View>
     </ScrollView>
   );

@@ -9,9 +9,10 @@ const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
 interface MovieListProps {
   category: string;
   title: string;
+  excludeMovieId?: string;
 }
 
-const MovieList: React.FC<MovieListProps> = ({category, title}) => {
+const MovieList: React.FC<MovieListProps> = ({category, title, excludeMovieId}) => {
   const {movies, loading, error} = useFetchMovies(category);
   const navigation = useRouter();
 
@@ -23,11 +24,16 @@ const MovieList: React.FC<MovieListProps> = ({category, title}) => {
     return <Text style={movieListStyles.errorText}>Error loading movies</Text>;
   }
 
+  const filteredMovies = excludeMovieId
+    ? movies.filter((movie) => movie.id.toString() !== excludeMovieId)
+    : movies;
+
+
   return(
     <View style = {movieListStyles.container}>
       <Text style = {movieListStyles.categoryTitle}>{title}</Text>
       <FlatList
-      data={movies} 
+      data={filteredMovies} 
       keyExtractor={(item) => item.id.toString()}
       renderItem={({item}) => (
         <TouchableOpacity 
