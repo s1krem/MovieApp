@@ -1,37 +1,21 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const globalStyles = StyleSheet.create({
-  poster: {
-    width: 120,
-    height: 200,
-    borderRadius: 6,
-    marginRight: 10,
+  scrollContainer: {
+    flexGrow: 1,
+    backgroundColor: "#121212",
+    paddingBottom: 20,
   },
-  movieContainer:{
-    alignItems: 'center',
-    marginHorizontal: 10,
-    width: 120,
-    paddingVertical: 10,
+  header: {
+    paddingTop: 50,
+    paddingBottom: 20,
+    backgroundColor: "#E50914",
+    alignItems: "center",
   },
-  movieTitle:{
-    textAlign: 'center',
-    width: 120,
-    alignSelf: 'center',
-  },
-  description: {
-    fontSize: 16,
-    textAlign: "center",
-    color: "#666",
-  },
-  detailsContainer: {
-    flex: 1,
-    alignItems: 'center',
-    padding: 20,
-  },
-  detailsImage: {
-    width: 300,
-    height: 450,
-    borderRadius: 10,
+  headerTitle: {
+    fontSize: 24,
+    fontWeight: "bold",
+    color: "white",
   },
 });
 

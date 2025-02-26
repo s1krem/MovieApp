@@ -3,8 +3,6 @@ import { View, Text, FlatList, ActivityIndicator, Image, TouchableOpacity} from 
 import { useRouter } from 'expo-router';
 import {useFetchMovies} from '../services/useFetchMovies';
 import movieListStyles from '../styles/movieListStyles';
-import { LinearGradient } from 'expo-linear-gradient';
-import Icon from "react-native-vector-icons/FontAwesome";
 
 const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
 
@@ -34,7 +32,7 @@ const MovieList: React.FC<MovieListProps> = ({category, title}) => {
       renderItem={({item}) => (
         <TouchableOpacity 
         style = {movieListStyles.movieCard}
-        onPress={() => navigation.push({ pathname: `/[id]`, params: { id: item.id, ...item } })}>
+        onPress={() => navigation.push({ pathname: `/[id]`, params: { id: item.id, ...item, category } })}>
           
           <View style={movieListStyles.movieContainer}>
               <Image source={{ uri: `${IMAGE_BASE_URL}${item.poster_path}` }} style={movieListStyles.moviePoster} />
