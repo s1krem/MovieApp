@@ -1,5 +1,5 @@
 import React from "react";
-import { View, ScrollView } from "react-native";
+import { View, ScrollView} from "react-native";
 import MovieList from "../components/MovieList";
 
 export default function HomeScreen() {

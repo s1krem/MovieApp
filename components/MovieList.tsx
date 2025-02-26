@@ -1,7 +1,10 @@
 import React from 'react';
-import { View, Text, FlatList, ActivityIndicator, Image, StyleSheet, TouchableOpacity} from 'react-native';
+import { View, Text, FlatList, ActivityIndicator, Image, TouchableOpacity} from 'react-native';
 import { useRouter } from 'expo-router';
 import {useFetchMovies} from '../services/useFetchMovies';
+import movieListStyles from '../styles/movieListStyles';
+import { LinearGradient } from 'expo-linear-gradient';
+import Icon from "react-native-vector-icons/FontAwesome";
 
 const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
 
@@ -19,21 +22,25 @@ const MovieList: React.FC<MovieListProps> = ({category, title}) => {
   }
 
   if (error) {
-    return <Text>Error loading movies</Text>;
+    return <Text style={movieListStyles.errorText}>Error loading movies</Text>;
   }
 
   return(
-    <View>
-      <Text>{title}</Text>
+    <View style = {movieListStyles.container}>
+      <Text style = {movieListStyles.categoryTitle}>{title}</Text>
       <FlatList
       data={movies} 
       keyExtractor={(item) => item.id.toString()}
       renderItem={({item}) => (
-        <TouchableOpacity onPress={() => navigation.push({ pathname: `/[id]`, params: { id: item.id, ...item } })}>
-          <View>
-            <Image source={{ uri: `${IMAGE_BASE_URL}${item.poster_path}` }} style={{ width: 100, height: 150 }} />
-            <Text>{item.title}</Text>
-          </View>
+        <TouchableOpacity 
+        style = {movieListStyles.movieCard}
+        onPress={() => navigation.push({ pathname: `/[id]`, params: { id: item.id, ...item } })}>
+          
+          <View style={movieListStyles.movieContainer}>
+              <Image source={{ uri: `${IMAGE_BASE_URL}${item.poster_path}` }} style={movieListStyles.moviePoster} />
+              <Text style={movieListStyles.movieTitle}>{item.title}</Text>
+            </View>
+          
         </TouchableOpacity>
       )}
       horizontal
