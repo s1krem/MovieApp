@@ -30,15 +30,12 @@ const MovieList: React.FC<MovieListProps> = ({category, title}) => {
       data={movies} 
       keyExtractor={(item) => item.id.toString()}
       renderItem={({item}) => (
-        <TouchableOpacity
-            onPress={() => navigation.push({ pathname: `/[id]`, params: { id: item.id, ...item } })}
-          >
-            <View>
-              <Image source={{ uri: `${IMAGE_BASE_URL}${item.poster_path}` }} style={{ width: 100, height: 150 }} />
-              <Text>{item.title}</Text>
-            </View>
-          </TouchableOpacity>
-        
+        <TouchableOpacity onPress={() => navigation.push({ pathname: `/[id]`, params: { id: item.id, ...item } })}>
+          <View>
+            <Image source={{ uri: `${IMAGE_BASE_URL}${item.poster_path}` }} style={{ width: 100, height: 150 }} />
+            <Text>{item.title}</Text>
+          </View>
+        </TouchableOpacity>
       )}
       horizontal
       />
