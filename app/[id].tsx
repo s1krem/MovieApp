@@ -4,6 +4,7 @@ import { useFetchTrailer } from "../services/useFetchTrailer";
 import YoutubePlayer from "react-native-youtube-iframe";
 import movieDetailStyles from "../styles/movieDetailStyles";
 import MovieList from "../components/MovieList";
+import TopBar from '../components/TopBar';
 
 const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
 const { width } = Dimensions.get("window");
@@ -15,6 +16,7 @@ export default function MovieDetails() {
 
   return (
     <ScrollView contentContainerStyle={movieDetailStyles.scrollContainer}>
+      <TopBar title="Movie Details" showBackButton />
       <View style={movieDetailStyles.topContainer}>
         <Image source={{ uri: `${IMAGE_BASE_URL}${poster_path}` }} style={movieDetailStyles.poster} />
         <View style={movieDetailStyles.descriptionBox}>
@@ -39,8 +41,6 @@ export default function MovieDetails() {
         ) : (
           <Text style={movieDetailStyles.noTrailerText}>No trailer available</Text>
         )}
-
-
         
       </View>
       <View>
