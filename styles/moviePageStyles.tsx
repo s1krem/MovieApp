@@ -2,7 +2,7 @@ import { StyleSheet, Dimensions } from 'react-native';
 
 const { width, height } = Dimensions.get("window");
 
-const movieDetailStyles = StyleSheet.create({
+const moviePageStyles = StyleSheet.create({
   scrollContainer: {
     flexGrow: 1,
     backgroundColor: "#121212",
@@ -57,4 +57,4 @@ const movieDetailStyles = StyleSheet.create({
   },
 });
 
-export default movieDetailStyles;
+export default moviePageStyles;

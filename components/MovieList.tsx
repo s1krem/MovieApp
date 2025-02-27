@@ -38,7 +38,7 @@ const MovieList: React.FC<MovieListProps> = ({category, title, excludeMovieId}) 
       renderItem={({item}) => (
         <TouchableOpacity 
         style = {movieListStyles.movieCard}
-        onPress={() => navigation.push({ pathname: `/[id]`, params: { id: item.id, ...item, category } })}>
+        onPress={() => navigation.push({ pathname: `/MoviePage`, params: { id: item.id, ...item, category } })}>
           
           <View style={movieListStyles.movieContainer}>
               <Image source={{ uri: `${IMAGE_BASE_URL}${item.poster_path}` }} style={movieListStyles.moviePoster} />
