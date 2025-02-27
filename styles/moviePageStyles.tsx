@@ -13,6 +13,7 @@ const moviePageStyles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "flex-start",
     marginBottom: 20,
+    paddingTop: 20,
   },
   poster: {
     width: 130,
@@ -28,6 +29,7 @@ const moviePageStyles = StyleSheet.create({
     justifyContent: "center",
   },
   label: {
+    
     color: '#AAAAAA',
     fontSize: 12,
     fontWeight: 'bold',
@@ -48,12 +50,14 @@ const moviePageStyles = StyleSheet.create({
     marginBottom: 30,
   },
   title: {
+    fontFamily: 'Lato_Regular',
     fontSize: 20,
     fontWeight: "bold",
     color: "white",
     marginBottom: 5,
   },
   description: {
+    fontFamily: 'Lato_Regular',
     fontSize: 14,
     color: "#bbb",
     textAlign: "left",

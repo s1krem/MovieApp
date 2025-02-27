@@ -13,6 +13,7 @@ const globalStyles = StyleSheet.create({
     alignItems: "center",
   },
   headerTitle: {
+    fontFamily: 'Lato_Regular',
     fontSize: 24,
     fontWeight: "bold",
     color: "white",

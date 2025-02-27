@@ -11,6 +11,7 @@ const topBarStyles = StyleSheet.create({
     justifyContent: "center",
   },
   title: {
+    fontFamily: 'Lato_Regular',
     fontSize: 20,
     fontWeight: "bold",
     color: "white",

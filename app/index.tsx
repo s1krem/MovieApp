@@ -1,10 +1,19 @@
 import React from 'react';
-import { View, ScrollView} from 'react-native';
+import {ScrollView} from 'react-native';
 import MovieList from '../components/MovieList';
 import globalStyles from '../styles/globalStyles';
 import TopBar from '../components/TopBar';
+import { useLoadFonts } from '../services/useLoadFonts';
+
+
 
 export default function HomeScreen() {
+
+  const fontsLoaded = useLoadFonts();
+  if (!fontsLoaded) {
+    return null;
+  }
+  
   return (
     <ScrollView contentContainerStyle={ globalStyles.scrollContainer}>
       <TopBar title="MOVIE EXPLORER" />

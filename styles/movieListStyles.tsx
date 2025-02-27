@@ -5,6 +5,7 @@ const movieListStyles = StyleSheet.create({
     padding: 10,
   },
   categoryTitle: {
+    fontFamily: 'Lato_Regular',
     fontSize: 20,
     fontWeight: 'bold',
     color: 'white',
@@ -26,6 +27,7 @@ const movieListStyles = StyleSheet.create({
     borderRadius: 10,
   },
   movieTitle: {
+    fontFamily: 'Lato_Regular',
     color: 'grey',
     fontSize: 14,
     fontWeight: 'bold',
