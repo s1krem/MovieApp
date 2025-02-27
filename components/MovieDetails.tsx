@@ -3,9 +3,9 @@ import { View, Text, ActivityIndicator } from 'react-native';
 import { useFetchMovieDetails } from '../services/useFetchMovieDetails';
 import styles from '../styles/movieDetailsStyles';
 
-type MovieDetailsProps = {
+interface MovieDetailsProps {
     movieId: string;
-};
+}
 
 const MovieDetails: React.FC<MovieDetailsProps> = ({ movieId }) => {
     const { movieDetails, loading, error } = useFetchMovieDetails(movieId);

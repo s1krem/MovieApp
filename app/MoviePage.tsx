@@ -20,16 +20,18 @@ export default function MoviePage() {
       <TopBar title="Movie Details" showBackButton />
       <View style={moviePageStyles.topContainer}>
         <Image source={{ uri: `${IMAGE_BASE_URL}${poster_path}` }} style={moviePageStyles.poster} />
-        <View></View>
-        <MovieDetails  movieId={movieId} />
+        <View style={moviePageStyles.detailsContainer}>
+          <MovieDetails movieId={movieId} />
+        </View>
       </View>
+
       <View style={moviePageStyles.descriptionBox}>
         <Text style={moviePageStyles.title}>{title}</Text>
         <Text style={moviePageStyles.description}>{overview || "No description available."}</Text>
       </View>
+
       <Text style={moviePageStyles.title}>Official trailer :</Text>
       <View style={moviePageStyles.trailerContainer}>
-
         {loading ? (
           <ActivityIndicator size="large" color="#E50914" />
         ) : error ? (
@@ -44,10 +46,10 @@ export default function MoviePage() {
         ) : (
           <Text style={moviePageStyles.noTrailerText}>No trailer available</Text>
         )}
-        
       </View>
+
       <View>
-          <MovieList category={category.toString()} title="Related movies" excludeMovieId={movieId} />
+        <MovieList category={category.toString()} title="Related movies" excludeMovieId={movieId} />
       </View>
     </ScrollView>
   );

@@ -4,16 +4,15 @@ const movieDetailsStyles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#1E1E1E",
-        padding: 15,
         borderRadius: 10,
-        marginLeft: 15,
     },
     label: {
         color: '#AAAAAA',
         fontSize: 14,
         fontWeight: 'bold',
         textTransform: 'uppercase',
-        marginTop: 8,
+        marginTop: 4,
+        marginBottom: 5,
     },
     value: {
         color: 'white',

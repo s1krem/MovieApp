@@ -8,7 +8,7 @@ interface FetchMoviesResult {
   error: Error | null;
 }
 
-export function useFetchMovies(category: string): FetchMoviesResult {
+export function useFetchMovies(category: string, limit: number = 20): FetchMoviesResult {
   const [movies, setMovies] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<Error | null>(null);
@@ -29,7 +29,7 @@ export function useFetchMovies(category: string): FetchMoviesResult {
       try {
         const response = await fetch(`${BASE_URL}/${category}?language=en-US&page=1`, options);
         const data = await response.json();
-        setMovies(data.results || []);
+        setMovies(data.results?.slice(0, limit) || []);
       } catch (err) {
         setError(err as Error);
       } finally {
@@ -38,7 +38,7 @@ export function useFetchMovies(category: string): FetchMoviesResult {
     };
 
     fetchMovies();
-  }, [category]);
+  }, [category, limit]);
 
   return { movies, loading, error };
 }
