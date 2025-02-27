@@ -1,9 +1,9 @@
-import React from "react";
-import { View, Text, TouchableOpacity, StatusBar } from "react-native";
-import { useRouter } from "expo-router";
-import { SafeAreaView } from "react-native-safe-area-context";
-import topBarStyles from "../styles/topBarStyles";
-import Icon from "react-native-vector-icons/FontAwesome";
+import React from 'react';
+import { View, Text, TouchableOpacity, StatusBar } from 'react-native';
+import { useRouter } from 'expo-router';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import topBarStyles from '../styles/topBarStyles';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 interface TopBarProps {
   title: string;
