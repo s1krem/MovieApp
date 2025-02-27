@@ -2,14 +2,13 @@ import { StyleSheet } from "react-native";
 
 const topBarStyles = StyleSheet.create({
   container: {
+    paddingTop: 20,
     backgroundColor: "#121212",
-    paddingBottom: 10,
   },
   innerContainer: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    paddingVertical: 20,
   },
   title: {
     fontSize: 20,

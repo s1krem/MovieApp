@@ -7,7 +7,7 @@ import TopBar from '../components/TopBar';
 export default function HomeScreen() {
   return (
     <ScrollView contentContainerStyle={ globalStyles.scrollContainer}>
-      <TopBar title="Movie Explorer" />
+      <TopBar title="MOVIE EXPLORER" />
       <MovieList category="popular" title="Popular movies" />
       <MovieList category="now_playing" title="Now playing" />
       <MovieList category="top_rated" title="Top rated" />

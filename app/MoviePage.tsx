@@ -17,7 +17,7 @@ export default function MoviePage() {
 
   return (
     <ScrollView contentContainerStyle={moviePageStyles.scrollContainer}>
-      <TopBar title="Movie Details" showBackButton />
+      <TopBar title="MOVIE DETAILS" showBackButton />
       <View style={moviePageStyles.topContainer}>
         <Image source={{ uri: `${IMAGE_BASE_URL}${poster_path}` }} style={moviePageStyles.poster} />
         <View style={moviePageStyles.detailsContainer}>
